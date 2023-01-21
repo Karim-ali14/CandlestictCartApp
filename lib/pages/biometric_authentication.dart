@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../helper/unit.dart';
+import 'home_screen.dart';
 
 class BiometricAuthentication extends StatefulWidget {
   const BiometricAuthentication({Key? key})
@@ -35,7 +35,10 @@ class _BiometricAuthenticationState extends State<BiometricAuthentication> {
   void _authenticateUser() {
     AppUnitHelper.authenticateUser().then((value) {
       if (value) {
-
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
       }
     });
   }
