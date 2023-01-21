@@ -14,19 +14,30 @@ class BiometricAuthentication extends StatefulWidget {
 class _BiometricAuthenticationState extends State<BiometricAuthentication> {
   @override
   void initState() {
-    AppUnitHelper.authenticateUser().then((value) {
-      if (value) {
-
-      }
-    });
+    _authenticateUser();
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            _authenticateUser();
+          },
+          child: const Text('Authenticate'),
+        ),
+
+      ),
     );
   }
 
+  void _authenticateUser() {
+    AppUnitHelper.authenticateUser().then((value) {
+      if (value) {
+
+      }
+    });
+  }
 
 }
